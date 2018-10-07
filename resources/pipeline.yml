@@ -1,0 +1,10 @@
+pipeline:
+  name: "My Pipeline"
+  actions:
+    -
+        branch: master
+        repo: "/Users/tlongo/projects/python/trucker/testrepor"
+        type: checkout
+    -
+        type: build
+        command: gradlew build -x test
