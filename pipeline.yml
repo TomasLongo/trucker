@@ -14,4 +14,5 @@ pipeline:
         type: deploy
         source: "notes/build/libs/notes-0.0.1-SNAPSHOT.jar"
         destination: "/Users/tlongo/temp/deploymentdest/notes.jar"
-        tool: cp
+        tool: script
+        script: /Users/tlongo/projects/python/trucker/testscript.sh
