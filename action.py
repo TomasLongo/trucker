@@ -1,5 +1,6 @@
 import subprocess
 import os
+import shutil
 
 
 class Action:
@@ -8,6 +9,7 @@ class Action:
         self.repo = args['repo']
 
     def exec(self, environ):
+        # create the 
         buildRepo = os.path.join(environ['WORKDIR'], os.path.basename(self.repo))
         print(f"Buildrepo {buildRepo}")
         environ['BUILDREPO'] = buildRepo
@@ -24,3 +26,18 @@ class Build:
         process = subprocess.Popen(f"cd {environ['BUILDREPO']} && {self.command}", stdout=subprocess.PIPE, shell=True)
         proc_stdout = process.communicate()[0].strip()
         print(proc_stdout)
+
+
+
+class Deployment:
+    def __init__(self, args):
+        self.tool = args['tool']
+        self.src = args['source']
+        self.dest = args['destination']
+
+    def exec(self, environ):
+        self.workingDir = environ['WORKDIR']
+        if self.tool == 'cp':
+            resolvedSource = os.path.join(self.workingDir, self.src)
+            print(f'copying with cp from {resolvedSource} to {self.dest}')
+            shutil.copyfile(resolvedSource, self.dest)

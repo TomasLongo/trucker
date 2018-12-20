@@ -9,3 +9,9 @@ pipeline:
     -
         type: build
         command: ./gradlew build -x test
+
+    - 
+        type: deploy
+        source: "notes/build/libs/notes-0.0.1-SNAPSHOT.jar"
+        destination: "/Users/tlongo/temp/deploymentdest/notes.jar"
+        tool: cp

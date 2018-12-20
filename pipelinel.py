@@ -53,4 +53,6 @@ def createAction(type, args):
         return BuildActions.Action(args)
     elif type == 'build':
         return BuildActions.Build(args)
+    elif type == 'deploy':
+        return BuildActions.Deployment(args)
 
