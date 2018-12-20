@@ -1,0 +1,11 @@
+pipeline:
+  name: "MyPipeline"
+  actions:
+    -
+        branch: dev
+        repo: "/Users/tlongo/projects/kotlin/notes"
+        type: checkout
+
+    -
+        type: build
+        command: ./gradlew build -x test

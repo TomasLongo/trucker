@@ -3,8 +3,5 @@ pipeline:
   actions:
     -
         branch: master
-        repo: "/Users/tlongo/projects/python/trucker/testrepor"
+        repo: "/Users/tlongo/projects/kotlin/notes"
         type: checkout
-    -
-        type: build
-        command: gradlew build -x test

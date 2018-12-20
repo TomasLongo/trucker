@@ -4,4 +4,5 @@ pipeline = pipelinel.Pipeline()
 pipeline.readPipeline("hallo")
 
 pipeline.run()
+pipeline.printEnviron()
 
